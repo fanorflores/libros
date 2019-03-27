@@ -1,14 +1,9 @@
 <?php 
 include_once 'metadatos.php';
 include 'header.php'; 
-
     $login=true;
     $claseMenu= $login ? "col-lg-8":"col-lg-12";
     $claseContent= $login ? "col-xs-6 col-sm-6 col-md-4 col-lg-3": "col-xs-6 col-sm-6 col-md-4 col-lg-2";
-   /*if( $login)
-    $claseMenu="col-lg-8";
-   else
-    $claseMenu="col-lg-12";*/
 ?>
 
 
