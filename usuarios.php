@@ -3,12 +3,21 @@ include_once 'metadatos.php';
 include 'header.php';
 include 'tblUsuarios.php';
 $usuarios=new Usuarios();
-$tabla = $usuarios->listarUsuarios();
+if(isset($_POST['indicio']))
+{
+  $indicio=$_POST['indicio'];
+  $tabla = $usuarios->listarUsuarios($indicio);
+
+}
+else
+{
+  $tabla = $usuarios->listarUsuarios("");
+}
 ?>
     <section class="bs-docs-section container">
     <div class="">
-    <form class="form-inline 2 my-4 my-lg-0">
-      <input class="form-control mx-4 mr-sm-12 col-9" type="text" placeholder="Buscar">
+    <form class="form-inline 2 my-4 my-lg-0" action="usuarios.php" method="POST" >
+      <input class="form-control mx-4 mr-sm-12 col-9" type="text" placeholder="Buscar" name="indicio">
       <button class="btn btn-success my-2 mx-1 my-sm-0 col-2" type="submit">Buscar</button>
     </form>
     </div>

@@ -25,10 +25,10 @@ class Usuarios
         $this->con= new Conexion();
     }
 
-    public function listarUsuarios()
+    public function listarUsuarios($indicio)
     {
         $this->con->openConection();
-        $resultados=mysqli_query($this->con->getConection(),"SELECT u.id,u.nombre,u.apellido,u.user,t.descripcion,u.suspendido FROM usuarios u inner join tipousuario t on u.idTipoUsuario=t.idTipoUsuario;");
+        $resultados=mysqli_query($this->con->getConection(),"SELECT u.id,u.nombre,u.apellido,u.user,t.descripcion,u.suspendido FROM usuarios u inner join tipousuario t on u.idTipoUsuario=t.idTipoUsuario  where u.nombre like '%$indicio%' or u.user like '%$indicio%';");
         $this->con->closeConection();
         return $resultados;
     }
