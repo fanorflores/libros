@@ -5,9 +5,14 @@ include 'tblUsuarios.php';
 $usuarios=new Usuarios();
 $tabla = $usuarios->listarUsuarios();
 ?>
-<section class="bs-docs-section container">
-
-    <article class="row table-responsive">
+    <section class="bs-docs-section container">
+    <div class="">
+    <form class="form-inline 2 my-4 my-lg-0">
+      <input class="form-control mx-4 mr-sm-12 col-9" type="text" placeholder="Buscar">
+      <button class="btn btn-secondary my-2 mx-1 my-sm-0 col-2" type="submit">Buscar</button>
+    </form>
+    </div>
+    <article class="row table-responsive my-1">
       <table class="table table-bordered table-hover " >
         <thead>
             <tr class="table-success">
