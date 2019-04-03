@@ -50,10 +50,7 @@ class Usuarios
         if(self::usuarioExiste()!=0)
         {
             $this->con->openConection();
-            $resultados=mysqli_query($this->con->getConection(),
-                                "SELECT * FROM libros.usuarios
-                                 where usuarios.user='$this->user' 
-                                 and usuarios.pwd='$this->pwd' and not suspendido;");
+            $resultados=mysqli_query($this->con->getConection(),"call login('$this->user', '$this->pwd');");
              $this->con->closeConection();
             return $resultados->num_rows;
         }
