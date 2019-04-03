@@ -19,6 +19,7 @@ class Conexion
     public function openConection()
     {
         $this->conexion=new mysqli($this->server, $this->user, $this->pwd, $this->db);
+        mysqli_query( $this->conexion,"SET NAMES 'utf8'");
     }
     public function getConection()
     {

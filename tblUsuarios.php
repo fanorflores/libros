@@ -1,4 +1,4 @@
-<?php
+<?php 
 include 'conexion.php';
 class Usuarios
 {
@@ -34,10 +34,10 @@ class Usuarios
     }
 
 }
-/*$usuarios=new Usuarios();
-$tabla = $usuarios->listarUsuarios();
+$usuarios=new Usuarios();
+$tabla = $usuarios->listarUsuarios("");
  while ($fila=$tabla->fetch_assoc())
  {
-    echo $fila['nombre'];
- }*/
+    echo $fila['apellido'];
+ }
 ?>
