@@ -30,7 +30,7 @@
                     </form>
                 </div>
                 <li class="nav-item">
-                <a class="nav-link" href="#" target="_blank">Iniciar Sesión</a>
+                <a class="nav-link" href="login.php" target="_self">Iniciar Sesión</a>
                 </li>
             </ul>
 
