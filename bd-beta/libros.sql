@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 22-03-2019 a las 14:26:49
+-- Tiempo de generación: 04-04-2019 a las 21:26:12
 -- Versión del servidor: 5.7.24
 -- Versión de PHP: 7.0.33
 
@@ -29,6 +29,11 @@ DELIMITER $$
 DROP PROCEDURE IF EXISTS `InsertarAsignatura`$$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `InsertarAsignatura` (IN `nombreIN` VARCHAR(45), IN `carreraIN` VARCHAR(45))  BEGIN
 INSERT INTO `libros`.`asignatura` (`nombre`, `carrera`) VALUES (nombreIN, carreraIN);
+END$$
+
+DROP PROCEDURE IF EXISTS `login`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `login` (IN `userIN` VARCHAR(60), IN `pwdIN` VARCHAR(60))  BEGIN
+SELECT * FROM libros.usuarios where usuarios.user=userIN and usuarios.pwd=pwdIN and not suspendido;
 END$$
 
 DELIMITER ;
@@ -211,7 +216,8 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
 
 INSERT INTO `usuarios` (`id`, `nombre`, `apellido`, `user`, `pwd`, `suspendido`, `picture`, `idTipoUsuario`) VALUES
 (1, 'Fanor Antonio', 'Rivera Flores', 'frivera', '123hacked', 0, NULL, 1),
-(2, 'Dagoberto', 'Caceres', 'dcacers', '321hacked', 1, NULL, 2);
+(2, 'Dagoberto', 'Cáceres', 'dcacers', '321hacked', 0, NULL, 2),
+(3, 'Jorge', 'Laguna', 'avellan', '985hacked', 0, NULL, 3);
 
 --
 -- Restricciones para tablas volcadas
