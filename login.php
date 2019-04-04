@@ -1,18 +1,35 @@
 <?php
 include 'metadatos.php';
-include 'header.php';
+require 'private.php';
+
 $mensaje="alert alert-dismissible alert-danger d-none";
+$session= new Session();
+$session->init();
 if(isset($_POST['user']))
 {
-    include 'tblUsuarios.php';;
+    require 'tblUsuarios.php';
     $usuarios=new Usuarios();
     $usuarios->setUser($_POST['user']);
     $usuarios->setPwd($_POST['pwd']);
     if($usuarios->login())
+    {
+        $session->add('user',$_POST['user']);
          header("Location: index.php");
+    }
     else
+    {
         $mensaje="alert alert-dismissible alert-danger";
+        $session->close();
+    }
 }
+else
+{
+    if(!empty($session->get('user')))
+    {
+        header("Location: index.php");
+    }
+}
+include 'header.php';
 
 ?>
     <section class="container">

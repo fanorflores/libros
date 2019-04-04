@@ -1,9 +1,21 @@
 <?php 
 include_once 'metadatos.php';
-include 'header.php'; 
-    $login=true;
-    $claseMenu= $login ? "col-lg-8":"col-lg-12";
-    $claseContent= $login ? "col-xs-6 col-sm-6 col-md-4 col-lg-3": "col-xs-6 col-sm-6 col-md-4 col-lg-2";
+require 'private.php';
+$session= new Session();
+$session->init();
+$login=false;
+if(isset($_POST['close']))
+{
+  $session->close();
+}
+if(!empty($session->get('user')))
+{
+  $login=true;
+}
+$claseMenu= $login ? "col-lg-8":"col-lg-12";
+$claseContent= $login ? "col-xs-6 col-sm-6 col-md-4 col-lg-3": "col-xs-6 col-sm-6 col-md-4 col-lg-2";
+
+include 'header.php';
 ?>
 
 

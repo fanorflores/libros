@@ -30,8 +30,17 @@
                     </form>
                 </div>
                 <li class="nav-item">
-                <a class="nav-link" href="login.php" target="_self">Iniciar Sesión</a>
-                </li>
+                <form action="index.php" method="POST" id="salir">
+                <input type="hidden" id="close" name="close" value=1/>
+                </form>
+                <?php 
+                if(empty($session->get('user')))
+                {
+                    echo "<a class='nav-link' href='login.php' target='_self'>Iniciar Sesión</a></li>";
+                }else{
+                    echo "<a class='nav-link' href='#'  onclick='salir()' target='_self'>Salir</a></li>";
+                } ?>
+                
             </ul>
 
             </nav>

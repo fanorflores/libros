@@ -14,5 +14,6 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/custom.js"></script>
+    <script src="js/funciones.js"></script>
 </body>
 </html>

@@ -1,7 +1,7 @@
 <div class="col-lg-4">
         <div class="list-group">
             <a href="#" class="list-group-item list-group-item-action active">
-              Cras justo odio
+              Administración
             </a>
             <a href="usuarios.php" class="list-group-item list-group-item-action">Gestionar Usuarios
             </a>
