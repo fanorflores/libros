@@ -1,10 +1,29 @@
 <?php
 include 'metadatos.php';
 include 'zone-admin.php';
-$mensaje="alert alert-dismissible alert-danger ";
+require 'tblUsuarios.php';
+$mensaje="alert alert-dismissible alert-danger d-none";
+
+if(isset($_POST['name']))
+{
+    $usuarios=new Usuarios();
+    $usuarios->setNombre($_POST['name']);
+    $usuarios->setApellido($_POST['lastname']);
+    $usuarios->setUser($_POST['user']);
+    $usuarios->setPwd($_POST['pwd']);
+    $usuarios->setIdTipoUsuario($_POST['tipoUsuario']);
+    if( $usuarios->agregarUsuarios()==1)
+        header("Location:usuarios.php");
+    else
+    $mensaje="alert alert-dismissible alert-danger ";
+
+}
+
+
+
+
 
 include 'header.php';
-
 ?>
     <section class="container">
         <article class="row">
@@ -16,11 +35,11 @@ include 'header.php';
                 <div class="form-group row">
                    <div class="col-lg-6">
                         <label for="name">Nombre:</label>
-                        <input type="text" class="form-control text-lowercase" id="name" name="name" required>
+                        <input type="text" class="form-control " id="name" name="name" required>
                    </div>
                    <div class="col-lg-6">
                         <label for="lastname">Apellido:</label>
-                        <input type="text" class="form-control text-lowercase" id="lastname" name="lastname" required>
+                        <input type="text" class="form-control " id="lastname" name="lastname" required>
                     </div>
                 </div>
                 <div class="form-group">
