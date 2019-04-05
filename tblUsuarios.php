@@ -25,6 +25,19 @@ class Usuarios
         $this->con= new Conexion();
     }
 
+    public function setId($id)
+    {
+        $this->id=$id;
+    }
+    public function setNombre($nombre)
+    {
+        $this->nombre=$nombre;
+    }
+    public function setApellido($apellido)
+    {
+        $this->apellido=$apellido;
+    }
+    
     public function setUser($user)
     {
         $this->user=$user;
@@ -33,6 +46,10 @@ class Usuarios
     public function setPwd($pwd)
     {
         $this->pwd=$pwd;
+    }
+    public function setIdTipoUsuario($idTipoUsuario)
+    {
+        $this->idTipoUsuario=$idTipoUsuario;
     }
 
     public function usuarioExiste()
@@ -57,6 +74,16 @@ class Usuarios
         return 0;
     }
 
+    public function getIdBd()
+    {
+        $this->con->openConection();
+        $resultados=mysqli_query($this->con->getConection(),"SELECT  id FROM libros.usuarios order by id desc limit 1;");
+        $this->con->closeConection();
+        $id= $resultados->fetch_assoc(); 
+        self::setId($id['id']+1);
+        //return $id['id']+1;
+    }
+
     public function listarUsuarios($indicio)
     {
         $this->con->openConection();
@@ -64,11 +91,26 @@ class Usuarios
         $this->con->closeConection();
         return $resultados;
     }
+    public function agregarUsuarios()
+    {
+        self::getIdBd();
+        $this->con->openConection();
+        $resultados=mysqli_query($this->con->getConection(),"INSERT INTO usuarios (id, nombre, apellido, user, pwd, suspendido, idTipoUsuario) 
+                                                                VALUES ('$this->id', '$this->nombre', '$this->apellido', '$this->user', '$this->pwd', '0', '$this->idTipoUsuario');");
+        $registros=$this->con->getConection()->affected_rows;
+        $this->con->closeConection();
+        return $registros;
+    }
 
 }
 /*$usuarios=new Usuarios();
-$usuarios->setUser('dcacers');
-$usuarios->setPwd('321hacked');
-echo $usuarios->login() ? "LOGIN EXITOSO" :"FALLÓ LOGIN";
-*/
+$usuarios->setNombre('Marcos');
+$usuarios->setApellido('Aguirre');
+$usuarios->setUser('marcos');
+$usuarios->setPwd('0000');
+$usuarios->setIdTipoUsuario(3);
+echo $usuarios->agregarUsuarios();*/
+
+
+
 ?>
