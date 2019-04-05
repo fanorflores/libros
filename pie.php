@@ -1,5 +1,5 @@
-<footer id="footer">
-        <div class="row container-fluid">
+<footer id="footer" class="bg-light ">
+        <div class="container ">
           <div class="col-lg-12">
 
             <p>Diseño y Desarrollo por <a href="http://fanorflores.com">Fanor Rivera Flores</a>.</p>
