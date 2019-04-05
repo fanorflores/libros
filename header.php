@@ -1,4 +1,6 @@
+<?php
 
+?>
 <header class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
         <div class="container">
             <a href="../" class="navbar-brand"><img src="images/main/logotev3.png" alt="Libros Tecnología Educativa"></a>

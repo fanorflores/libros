@@ -1,8 +1,5 @@
 <?php 
 include_once 'metadatos.php';
-require 'private.php';
-$session= new Session();
-$session->init();
 $login=false;
 if(isset($_POST['close']))
 {
@@ -14,8 +11,8 @@ if(!empty($session->get('user')))
 }
 $claseMenu= $login ? "col-lg-8":"col-lg-12";
 $claseContent= $login ? "col-xs-6 col-sm-6 col-md-4 col-lg-3": "col-xs-6 col-sm-6 col-md-4 col-lg-2";
-
 include 'header.php';
+
 ?>
 
 

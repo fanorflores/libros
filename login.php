@@ -1,10 +1,7 @@
 <?php
 include 'metadatos.php';
-require 'private.php';
-
 $mensaje="alert alert-dismissible alert-danger d-none";
-$session= new Session();
-$session->init();
+
 if(isset($_POST['user']))
 {
     require 'tblUsuarios.php';

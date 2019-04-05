@@ -9,6 +9,10 @@
     <link rel="stylesheet" href="css/custom.min.css">
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/style.css">
-    <?php include 'menu.php';?>
+    <?php include 'menu.php';
+        require 'private.php';
+        $session= new Session();
+        $session->init();
+    ?>
 </head>
 <body>
