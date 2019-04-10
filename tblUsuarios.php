@@ -101,15 +101,30 @@ class Usuarios
         $this->con->closeConection();
         return $registros;
     }
+    public function editarUsuarios()
+    {
+        $this->con->openConection();
+        $resultados=mysqli_query($this->con->getConection(),"UPDATE usuarios SET 
+                                                            nombre = '$this->nombre', 
+                                                            apellido = '$this->apellido', 
+                                                            user = '$this->user', 
+                                                            pwd = '$this->pwd', 
+                                                            idTipoUsuario = '$this->idTipoUsuario' 
+                                                            WHERE (id = '$this->id');");
+        $registros=$this->con->getConection()->affected_rows;
+        $this->con->closeConection();
+        return $registros;
+    }
 
 }
 /*$usuarios=new Usuarios();
-$usuarios->setNombre('Marcos');
+$usuarios->setID(8);
+$usuarios->setNombre('Geofasdfdsafavany');
 $usuarios->setApellido('Aguirre');
 $usuarios->setUser('marcos');
 $usuarios->setPwd('0000');
 $usuarios->setIdTipoUsuario(3);
-echo $usuarios->agregarUsuarios();*/
+echo $usuarios->editarUsuarios();*/
 
 
 
