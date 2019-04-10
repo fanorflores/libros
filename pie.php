@@ -15,5 +15,7 @@
     <script src="js/popper.min.js"></script>
     <script src="js/custom.js"></script>
     <script src="js/funciones.js"></script>
+    <script src="js/funcionEditar.js"></script>
+
 </body>
 </html>
